@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="login"
+            type="com.app.mvvmtest.viewmodel.UserViewModel"/>
+        <variable
+            name="loginClickEvent"
+            type="com.app.mvvmtest.command.UserLogin"/>
+    </data>
+
+<LinearLayout
+    android:layout_margin="20dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.mvvmtest.MainActivity">
+
+
+    <EditText
+        android:text="@={login.email}"
+        android:id="@+id/ed_mail"
+        android:hint="@{login.emailHint}"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:text="@={login.password}"
+        android:id="@+id/ed_password"
+        android:hint="@{login.passwordHint}"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:onClick="@{(v)->loginClickEvent.onClickLogin()}"
+        android:text="Click"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+
+</LinearLayout>
+</layout>
